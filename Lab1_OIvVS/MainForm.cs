@@ -627,7 +627,8 @@ namespace Lab1_OIvVS
 
             // Открываем/обновляем формы
             EnsurePacketsInfoFormVisible();
-            EnsureRoutingTablesFormVisible();
+            if (launchIsExperience)
+                EnsureRoutingTablesFormVisible();
 
             // Запускаем: сначала сразу первый пакет, потом остальные по таймеру
             launchTimer_Tick(null, null);
@@ -785,7 +786,7 @@ namespace Lab1_OIvVS
                         {
                             p.Status = PacketStatus.Delivered;
                             deliveredIds.Add(p.Id);
-                            if (routingTables != null)
+                            if (routingTables != null && launchIsExperience)
                                 graph.LearnRouteFromPacket(routingTables, p);
 
                             // Если виртуальный "по опыту" и маршрут ещё не зафиксирован — фиксируем
