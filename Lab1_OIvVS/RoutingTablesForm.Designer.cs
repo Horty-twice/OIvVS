@@ -62,7 +62,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-                this.colDestination,
                 this.colNextNode,
                 this.colHops});
             this.dataGridViewTable.Location = new System.Drawing.Point(12, 70);
@@ -72,16 +71,9 @@
             this.dataGridViewTable.TabIndex = 1;
 
             // 
-            // colDestination
-            // 
-            this.colDestination.HeaderText = "Назначение";
-            this.colDestination.Name = "colDestination";
-            this.colDestination.Width = 140;
-
-            // 
             // colNextNode
             // 
-            this.colNextNode.HeaderText = "Следующий узел";
+            this.colNextNode.HeaderText = "Откуда";
             this.colNextNode.Name = "colNextNode";
             this.colNextNode.Width = 140;
 

@@ -301,13 +301,15 @@ namespace Lab1_OIvVS
             var path = packet.Path;
             if (path.Count < 2) return;
 
-            for (int i = 0; i < path.Count - 1; i++)
+            for (int i = 0; i < path.Count; i++)
             {
                 Vertex currentNode = path[i];
-                Vertex nextHop = path[i + 1];
-                int hops = path.Count - 1 - i;
+                int hopsFromStart = i;
+                Vertex nextHop = (i < path.Count - 1) ? path[i + 1] : null;
+                Vertex previousNode = (i > 0) ? path[i - 1] : null;
+
                 if (tables.ContainsKey(currentNode))
-                    tables[currentNode].Update(packet.Destination, nextHop, hops);
+                    tables[currentNode].Update(packet.Destination, nextHop, hopsFromStart, previousNode);
             }
         }
 

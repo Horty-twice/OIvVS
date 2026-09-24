@@ -64,9 +64,9 @@ namespace Lab1_OIvVS
             // Заполняем строки
             foreach (var kvp in table.Entries.OrderBy(e => e.Key.Name))
             {
-                Vertex destination = kvp.Key;
                 RoutingEntry entry = kvp.Value;
-                dataGridViewTable.Rows.Add(destination.Name, entry.NextNode.Name, entry.Hops);
+                string prev = entry.PreviousNode != null ? entry.PreviousNode.Name : "—";
+                dataGridViewTable.Rows.Add(prev, entry.Hops);
             }
         }
 
